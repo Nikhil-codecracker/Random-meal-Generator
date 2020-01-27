@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="heading">
+            <h1>Food Recipie?</h1>
+            <h2>Get a random meal by clicking below</h2>
+            <button id="button">GET MEAL</button>
+        </div>
+        <div id="recipie">
+            <div id="points">
+                <img id='image' height=400 width=400>
+                <p><b>Category: </b><span id="category"></span><br><b>Area: </b><span id="area"></span><br><b>Tags: </b><span id="tags"></span></p>
+                <h3 style="font-size:20px important!">Ingredients:</h3>
+                <ul id="ingredients">
+
+                </ul>
+            </div>
+            <div id="description">
+                <p id="food"></p>
+                <p id="content"></p>
+            </div>
+        </div>
+        <div id="video">
+            <h3>Video Recipe</h3>
+            <iframe width="1000" height="550" id="source">
+            </iframe>
+        </div>
+        <script>
+            var image=['https://www.themealdb.com/images/media/meals/wruvqv1511880994.jpg',
+                       'https://www.themealdb.com/images/media/meals/qwrtut1468418027.jpg',
+                       'https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg',
+                       'https://www.themealdb.com/images/media/meals/sxrpws1511555907.jpg',
+                       'https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg']
+            var names=['Chicken Basquaise','Potato Gratin with Chicken','Cajun spiced fish tacos','Lamb and Potato pie','Timbits']
+            var points=[
+                ['Chicken','French','Meat'],
+                ['Chicken','Unknown','Meat'],
+                ['Seafood','Mexican','Spicy, Fish'],
+                ['Lamb','British','Pie'],
+                ['Dessert','Canadian','Snack,Treat']
+            ]
+            var ingredients=[
+                ['Chicken - 1.5kg','Butter - 25g','Olive Oil - 6 tblsp','Red Onions - 2 sliced','Red Pepper - 3 Large','Chorizo - 130g','Sun-Dried Tomatoes - 8','Garlic - 6 cloves sliced','Basmati Rice - 300g','Tomato Puree - drizzle','Paprika - ½ tsp','Bay Leaves - 4','Thyme - Handful','Chicken Stock - 350ml','Dry White Wine - 180g','Lemons - 2','Black Olives - 100g','Salt - to serve','Pepper - to serve'],
+                ['Potatoes - 800g','Onions - 3','Olive Oil - 2 tblsp','Chicken Stock - 100ml','Creme Fraiche - 1 pot','Parmesan - Topping','Chicken Breasts - 4','Bacon - 4','Spinach - Topping','Peas - Topping'],
+                ['cajun - 2 tbsp','cayenne pepper - 1 tsp','white fish - 4 fillets','vegetable oil - 1 tsp','flour tortilla - 8','avocado - 1 sliced','little gem lettuce - 2 shredded','spring onion - 4 shredded','salsa - 1 x 300ml','sour cream - 1 pot','lemon - 1','garlic - 1 clove finely chopped'],
+                ['Lamb Shoulder - 500g','Flour - 1 tbls','Vegetable Oil - Dash','Onion - 1 sliced','Carrots - 2 sliced','Vegetable Stock - 350ml/12fl','Potatoes - 500g','Shortcrust Pastry - 450g','Eggs - To Glaze'],
+                ['Flour - 2 cups','Sugar - 1/3 cup','Baking Powder - 3 tsp','Salt - ½ tsp','Egg - 1 beaten','Milk - ¾ cup','Oil - 3 tbs','Oil - for frying','Icing Sugar - garnish']
+            ]
+            var content=["Preheat the oven to 180°C/Gas mark 4. Have the chicken joints ready to cook. Heat the butter and 3 tbsp olive oil in a flameproof casserole or large frying pan. Brown the chicken pieces in batches on both sides, seasoning them with salt and pepper as you go. Don't crowd the pan - fry the chicken in small batches, removing the pieces to kitchen paper as they are done. Add a little more olive oil to the casserole and fry the onions over a medium heat for 10 minutes, stirring frequently, until softened but not browned. Add the rest of the oil, then the peppers and cook for another 5 minutes. Add the chorizo, sun-dried tomatoes and garlic and cook for 2-3 minutes. Add the rice, stirring to ensure it is well coated in the oil. Stir in the tomato paste, paprika, bay leaves and chopped thyme. Pour in the stock and wine. When the liquid starts to bubble, turn the heat down to a gentle simmer. Press the rice down into the liquid if it isn't already submerged and place the chicken on top. Add the lemon wedges and olives around the chicken. Cover and cook in the oven for 50 minutes. The rice should be cooked but still have some bite, and the chicken should have juices that run clear when pierced in the thickest part with a knife. If not, cook for another 5 minutes and check again.",
+                         "15 minute potato gratin with chicken and bacon greens: a gratin always seems more effort and more indulgent than ordinary boiled or roasts, but it doesn't have to take 45mins, it's nice for a change and you can control the calorie content by going with full fat to low fat creme fraiche. (It's always tastes better full fat though obviously!) to serve 4: use 800g of potatoes, finely slice and boil in a pan for about 5-8 mins till firmish, not soft. Finely slice 3 onions and place in an oven dish with 2 tblsp of olive oil and 100ml of chicken stock. Cook till the onions are soft then drain the potatoes and pour onto the onions. Season and spoon over cream or creme fraiche till all is covered but not swimming. Grate Parmesan over the top then finish under the grill till nicely golden. serve with chicken and bacon, peas and spinach.",
+                         "Cooking in a cajun spice and cayenne pepper marinade makes this fish super succulent and flavoursome. Top with a zesty dressing and serve in a tortilla for a quick, fuss-free main that's delightfully summery. On a large plate, mix the cajun spice and cayenne pepper with a little seasoning and use to coat the fish all over. Heat a little oil in a frying pan, add in the fish and cook over a medium heat until golden. Reduce the heat and continue frying until the fish is cooked through, about 10 minutes. Cook in batches if you don’t have enough room in the pan. Meanwhile, prepare the dressing by combining all the ingredients with a little seasoning. Soften the tortillas by heating in the microwave for 5-10 seconds. Pile high with the avocado, lettuce and spring onion, add a spoonful of salsa, top with large flakes of fish and drizzle over the dressing.",
+                         "Dust the meat with flour to lightly coat. Heat enough vegetable oil in a large saucepan to fill the base, and fry the onion and meat until lightly browned. Season with salt and pepper. Add the carrots, stock and more seasoning to taste. Bring to the boil, cover and reduce the heat to a simmer. Simmer for at least an hour or until the meat is tender. Take your time cooking the meat, the longer you leave it to cook, the better the flavour will be. Preheat the oven to 180C/350F/Gas 4. Add the drained potato cubes to the lamb. Turn the mixture into a pie dish or casserole and cover with the shortcrust pastry. Make three slits in the top of the pastry to release any steam while cooking. Brush with beaten egg and bake for about 40 minutes, until the pastry is golden brown. Serve.",
+                         "Sift together dry ingredients. Mix together wet ingredients and incorporate into dry. Stir until smooth. Drop by teaspoonfuls(no bigger) into hot oil (365 degrees, no hotter), turning after a few moments until golden brown on all sides. Remove and drain. Roll in cinnamon sugar while still warm and serve."
+                    ]
+            var video=['https://www.youtube.com/embed/emfm6TwsVhg',
+                       'https://www.youtube.com/embed/p3u8eiy3yHI',
+                       'https://www.youtube.com/embed/N4EdUt0Ou48',
+                       'https://www.youtube.com/embed/NCyPaaUNYUk',
+                       'https://www.youtube.com/embed/fFLn1h80AGQ']
+            document.getElementById('button').onclick=function(){
+                var r=Math.floor(Math.random()*4);
+                document.getElementById('recipie').style.display="block";
+                document.getElementById('video').style.display="block";
+                document.getElementById('image').src=image[r];
+                document.getElementById('category').innerHTML=points[r][0];
+                document.getElementById('area').innerHTML=points[r][1];
+                document.getElementById('tags').innerHTML=points[r][2];
+                document.getElementById('ingredients').innerHTML='<li>'+ingredients[r][0]+'</li>';
+                for(var i=1;i<ingredients[r].length;i++)
+                {
+                    document.getElementById('ingredients').innerHTML=document.getElementById('ingredients').innerHTML+'<li>'+ingredients[r][i]+'</li>';
+                }
+                document.getElementById('food').innerHTML='<b>'+names[r]+'<b>';
+                document.getElementById('content').innerHTML=content[r];
+                document.getElementById('source').setAttribute('src',video[r]);
+                console.log(names[0])
+            }
+            
+        </script>
+    </body>
+
+</html>

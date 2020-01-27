@@ -1,0 +1,47 @@
+#heading{
+    text-align:center;
+}
+#button{
+    background-color: rgba(0, 162, 255, 0.877);
+    color:white;
+    border-radius:30px;
+    height:40px;
+    width:120px;
+}
+#recipie{
+    position:relative;
+    top:50px;
+    left:300px;
+    display:none;
+    min-height:800px;
+    width:1000px;
+    overflow: hidden;
+}
+#points{
+    float:left;
+    min-height:800px;
+    width:450px;
+    font-size:18px;
+    overflow: hidden;
+}
+#description{
+    float:left;
+    min-height:800px;
+    width:550px;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+#food{
+    font-size:35px;
+}
+#content{
+    font-size:18px;
+}
+#video{
+    font-size:25px;
+    display:none;
+    position:relative;
+    left:50px;
+    text-align: center;
+}
